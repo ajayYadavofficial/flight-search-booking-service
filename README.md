@@ -154,15 +154,6 @@ docker run -p 8080:8080 \
 - **Containerization**: Docker & Docker Compose
 - **Database Driver**: mongo-go-driver
 
-## Project Highlights
-
-- **Clean Architecture**: Separation of concerns with handlers, services, and repositories
-- **Context Propagation**: Request context flows through all layers
-- **Custom Error Handling**: Domain-specific errors with clear categorization
-- **Auto-increment IDs**: MongoDB counter-based ID generation (FL0001, BK0001)
-- **Seat State Management**: AVAILABLE → LOCKED → BOOKED flow
-- **Connecting Flights**: Automatic detection of one-stop connecting flights
-- **Real-time Availability**: Dynamic seat availability tracking
 
 ## Database Collections
 
@@ -539,19 +530,6 @@ Return Booking ID
 └────────────────────────────┘
 ```
 
-### Key Flow Characteristics
-
-**Flight Search**:
-- Read-heavy operation
-- No state changes
-- Supports filtering, sorting, and pagination-ready
-- Real-time seat availability lookup
-
-**Flight Booking**:
-- Write-heavy operation with multiple state transitions
-- Transaction-like behavior with rollback on failure
-- Idempotent seat locking mechanism
-- Automatic cleanup on payment failure
 
 ## API Testing with cURL
 
