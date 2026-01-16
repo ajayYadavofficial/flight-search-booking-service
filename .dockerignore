@@ -1,0 +1,49 @@
+# Docker ignore file for flight-search-booking-service
+
+# Binaries
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+flight-booking-service
+
+# Test binary
+*.test
+
+# Output of the go coverage tool
+*.out
+
+# Go workspace file
+go.work
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Temporary files
+tmp/
+temp/
+
+# Git
+.git/
+.gitignore
+
+# Documentation
+README.md
+docs/
+
+# Docker files (not needed in image)
+Dockerfile
+.dockerignore
+docker-compose.yml

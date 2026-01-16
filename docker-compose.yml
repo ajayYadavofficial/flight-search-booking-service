@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  # MongoDB service
+  mongodb:
+    image: mongo:7.0
+    container_name: flight-booking-mongodb
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_DATABASE: flight_booking_db
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - flight-booking-network
+
+  # Flight booking service
+  flight-booking-service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: flight-booking-service
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    environment:
+      MONGO_URI: mongodb://mongodb:27017
+      DB_NAME: flight_booking_db
+      PORT: ":8080"
+    depends_on:
+      - mongodb
+    networks:
+      - flight-booking-network
+
+volumes:
+  mongodb_data:
+    driver: local
+
+networks:
+  flight-booking-network:
+    driver: bridge
