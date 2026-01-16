@@ -2,10 +2,6 @@ package models
 
 import "time"
 
-// TODO: Ajay
-// Segregate Seats from Flight and Create a new Seat Model
-// Create Booking Model to manage Bookings
-
 type Airport struct {
 	ID               string   `json:"id,omitempty" bson:"_id,omitempty"`
 	Code             string   `json:"code,omitempty" bson:"code,omitempty"`
@@ -15,9 +11,8 @@ type Airport struct {
 }
 
 type FlightSearchRequest struct {
-	DepartureCode string `json:"departure_code,omitempty" bson:"departure_code,omitempty"`
-	ArrivalCode   string `json:"arrival_code,omitempty" bson:"arrival_code,omitempty"`
-	// DepartureDate is a string in the format "YYYY-MM-DD"
+	DepartureCode    string `json:"departure_code,omitempty" bson:"departure_code,omitempty"`
+	ArrivalCode      string `json:"arrival_code,omitempty" bson:"arrival_code,omitempty"`
 	DepartureDate    string `json:"departure_date,omitempty" bson:"departure_date,omitempty"`
 	IsPriceLowToHigh bool   `json:"is_price_low_to_high,omitempty" bson:"is_price_low_to_high,omitempty"`
 	IsDirectFlight   bool   `json:"is_direct_flight,omitempty" bson:"is_direct_flight,omitempty"`

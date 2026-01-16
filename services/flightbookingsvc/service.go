@@ -11,11 +11,6 @@ import (
 	"time"
 )
 
-type Booking interface {
-	BookFlight(ctx context.Context, bookingReq models.BookingRequest) (bookingId string, isSuccessful bool, err error)
-	GetBookingDetails(ctx context.Context, bookingID string) (*models.Booking, error)
-}
-
 type bookingSvc struct {
 	paymentSvc     paymentsvc.Payment
 	seatController seatcontroller.SeatController

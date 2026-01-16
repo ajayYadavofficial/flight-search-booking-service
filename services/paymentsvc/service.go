@@ -5,10 +5,6 @@ import (
 	"crypto/rand"
 )
 
-type Payment interface {
-	ProcessPayment(ctx context.Context, transactionId string, userName string) (isSuccessful bool)
-}
-
 type demoPayment struct{}
 
 func NewPaymentService() Payment {

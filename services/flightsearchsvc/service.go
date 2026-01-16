@@ -11,11 +11,6 @@ import (
 	"time"
 )
 
-type FlightController interface {
-	SearchFlights(ctx context.Context, req models.FlightSearchRequest) ([]models.Flight, error)
-	AddFlight(ctx context.Context, flightAddReq models.FlightAddRequest) (flightID string, err error)
-}
-
 type flightSearchSvc struct {
 	flightSearchRepo  flightsearchrepo.Repository
 	seatControllerSvc seatcontroller.SeatController
